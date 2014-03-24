@@ -33,6 +33,18 @@
     void R(name) (void) { KF(release)(value);                   \
                           KF(release)(KEYBOARD__LeftShift); }
 
+/**                                            macros/KEYS__SHIFTED/description
+ * Define the functions for a "shifted" key (i.e. a key that sends a "shift"
+ * along with the keycode)
+ *
+ * Needed by ".../lib/layout/keys.h"
+ */
+#define  KEYS__ALT(name, value)                                 \
+    void P(name) (void) { KF(press)(KEYBOARD__LeftAlt);         \
+                          KF(press)(value); }                   \
+    void R(name) (void) { KF(release)(value);                   \
+                          KF(release)(KEYBOARD__LeftAlt); }
+
 /**                                    macros/KEYS__LAYER__PUSH_POP/description
  * Define the functions for a layer push-pop key (i.e. a layer shift key).
  *
