@@ -12,13 +12,18 @@
 #include "./fragments/matrix-control.part.h"
 
 
-#define de_y    z
-#define de_z    y
-#define de_oe   semicol
-#define de_ae   quote
-#define de_ue   brktL
-#define sharp   nonUSPound
-#define de_grave nonUSBkslash
+#define de_y      z
+#define de_z      y
+#define de_oe     semicol
+#define de_ae     quote
+#define de_ue     brktL
+#define de_sharp  nonUSPound
+#define de_circum nonUSBkslash
+#define de_sz     dash
+#define de_grave  equal
+#define de_less   grave
+#define de_dash   slash
+#define de_plus   brktR
 
 
 static layout_t layout PROGMEM = {
@@ -26,27 +31,27 @@ static layout_t layout PROGMEM = {
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
-     nop,        1,        2,        3,        4,        5, de_grave,
-     tab,        q,        w,        e,        r,        t,      esc,
+     nop,        1,        2,        3,        4,        5,de_circum,
+     esc,        q,        w,        e,        r,        t,      tab,
    ctrlL,        a,        s,        d,        f,        g,
-   grave,     de_y,        x,        c,        v,        b,      altL,
+ de_less,     de_y,        x,        c,        v,        b,      altL,
      nop,      nop,      nop,      nop,      nop,
-                                                                 nop, lpupo3l3,
+                                                                altL, lpupo3l3,
                                                        nop,      nop,      nop,
                                                     shiftL,     guiL, lpupo1l1,
 // right hand ..... ......... ......... ......... ......... ......... .........
-              dash,        6,        7,        8,        9,        0,      nop,
+          de_grave,        6,        7,        8,        9,        0,    de_sz,
              enter,     de_z,        u,        i,        o,        p,    de_ue,
                            h,        j,        k,        l,    de_oe,    de_ae,
-                bs,        n,        m,    comma,   period,    slash,    brktR,
-                                  altR,      nop,      nop,    sharp,    ctrlR,
-     nop,      nop,
+                bs,        n,        m,    comma,   period,  de_dash, de_sharp,
+                                  altR,    ctrlR,      nop,      nop,  de_plus,
+     nop,    ctrlR,
      nop,      nop,      nop,
 lpupo2l2,   shiftR,    space  ),
 
 // ............................................................................
 
-    MATRIX_LAYER(  // layer 1 : number pad
+    MATRIX_LAYER(  // layer 1
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
@@ -59,10 +64,10 @@ lpupo2l2,   shiftR,    space  ),
                                                     transp,   transp,   transp,
                                                     transp,   transp,   transp,
 // right hand ..... ......... ......... ......... ......... ......... .........
-               F12,       F6,       F7,       F8,       F9,      F10,   transp,
-            transp,     home,    pageD,   arrowU,    pageU,   transp,   transp,
-                         end,   arrowL,   arrowD,   arrowR,   transp,   transp,
-               del,   transp,   transp,   transp,   transp,   transp,   transp,
+               F12,       F6,       F7,       F8,       F9,      F10,    power,
+            transp,     home,    pageD,   arrowU,    pageU,   transp,  volumeU,
+                         end,   arrowL,   arrowD,   arrowR,   transp,  volumeD,
+               del,   transp,   transp,   transp,   transp,   transp,     mute,
                                 transp,   transp,   transp,   transp,   transp,
   transp,   transp,
   transp,   transp,   transp,
@@ -70,23 +75,23 @@ lpupo2l2,   shiftR,    space  ),
 
 // ............................................................................
 
-    MATRIX_LAYER(  // layer 2 : symbols and function keys
+    MATRIX_LAYER(  // layer 2
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
   transp,   transp,   transp,   transp,   transp,   transp,   transp,
-  transp,   transp,   transp,   transp,   transp,   transp,   transp,
-  transp,    grave,        s,   transp,   transp,        q,
+  transp,  de_plus,   transp,   transp,   transp,   transp,   transp,
+  transp,  de_less,     de_y,   transp,   transp,        q,
   transp,   transp,   transp,   transp,   transp,   transp,   transp,
   transp,   transp,   transp,   transp,   transp,
                                                               transp,   transp,
                                                     transp,   transp,   transp,
                                                     transp,   transp,   transp,
 // right hand ..... ......... ......... ......... ......... ......... .........
-            transp,   transp,   transp,   transp,   transp,   transp,    power,
-            transp,   transp,   transp,   transp,   transp,   transp,  volumeU,
-                      transp,   transp,   transp,   transp,   transp,  volumeD,
-            transp,   transp,   transp,   transp,   transp,   transp,     mute,
+            transp,   transp,   transp,   transp,   transp,   transp,   transp,
+            transp,   transp,   transp,   transp,   transp,   transp,   transp,
+                      transp,   transp,   transp,   transp,   transp,   transp,
+            transp,   transp,   transp,   transp,   transp,   transp,   transp,
                                 transp,   transp,   transp,   transp,   transp,
   transp,   transp,
   transp,   transp,   transp,
