@@ -33,17 +33,20 @@
     void R(name) (void) { KF(release)(value);                   \
                           KF(release)(KEYBOARD__LeftShift); }
 
-/**                                            macros/KEYS__SHIFTED/description
- * Define the functions for a "shifted" key (i.e. a key that sends a "shift"
- * along with the keycode)
- *
- * Needed by ".../lib/layout/keys.h"
- */
+
 #define  KEYS__ALT(name, value)                                 \
     void P(name) (void) { KF(press)(KEYBOARD__LeftAlt);         \
                           KF(press)(value); }                   \
     void R(name) (void) { KF(release)(value);                   \
                           KF(release)(KEYBOARD__LeftAlt); }
+
+
+#define  KEYS__LGUI(name, value)                                \
+    void P(name) (void) { KF(press)(KEYBOARD__LeftGUI);         \
+                          KF(press)(value); }                   \
+    void R(name) (void) { KF(release)(value);                   \
+                          KF(release)(KEYBOARD__LeftGUI); }
+
 
 /**                                    macros/KEYS__LAYER__PUSH_POP/description
  * Define the functions for a layer push-pop key (i.e. a layer shift key).
@@ -142,11 +145,13 @@ void KF(nop) (void) {}
 
 
 // --- special keycode --------------------------------------------------------
-
 KEYS__DEFAULT( power,   KEYBOARD__Power      );
 KEYS__DEFAULT( volumeU, KEYBOARD__VolumeUp   );
 KEYS__DEFAULT( volumeD, KEYBOARD__VolumeDown );
 KEYS__DEFAULT( mute,    KEYBOARD__Mute       );
+KEYS__LGUI( copy,    KEYBOARD__c_C        );
+KEYS__LGUI( paste,   KEYBOARD__v_V        );
+KEYS__LGUI( cut,     KEYBOARD__x_X        );
 
 
 // --- special function -------------------------------------------------------
@@ -221,17 +226,21 @@ KEYS__LAYER__PUSH_POP(0, 0);
 #define  keys__press__lpo0l0    R(lpupo0l0)
 #define  keys__release__lpo0l0  KF(nop)
 
-KEYS__LAYER__PUSH_POP(1,1);
-void P(lpu1l1) (void) { layer_stack__push(0, 1, 1); kb__led__on(1); }
-#define  keys__release__lpu1l1  KF(nop)
-void P(lpo1l1) (void) { layer_stack__pop_id(1); kb__led__off(1); }
-#define  keys__release__lpo1l1  KF(nop)
+//KEYS__LAYER__PUSH_POP(1,1);
+// void P(lpu1l1) (void) { layer_stack__push(0, 1, 1); kb__led__on(1); }
+// #define  keys__release__lpu1l1  KF(nop)
+// void P(lpo1l1) (void) { layer_stack__pop_id(1); kb__led__off(1); }
+// #define  keys__release__lpo1l1  KF(nop)
+void P(lpupo1l1) (void) { layer_stack__push(0, 1, 1); kb__led__on(1); }
+void R(lpupo1l1) (void) { layer_stack__pop_id(1); kb__led__off(1); }
 
-KEYS__LAYER__PUSH_POP(2,2);
-void P(lpu2l2) (void) { layer_stack__push(0, 2, 2); kb__led__on(2); }
-#define  keys__release__lpu2l2  KF(nop)
-void P(lpo2l2) (void) { layer_stack__pop_id(2); kb__led__off(2); }
-#define  keys__release__lpo2l2  KF(nop)
+// KEYS__LAYER__PUSH_POP(2,2);
+// void P(lpu2l2) (void) { layer_stack__push(0, 2, 2); kb__led__on(2); }
+// #define  keys__release__lpu2l2  KF(nop)
+// void P(lpo2l2) (void) { layer_stack__pop_id(2); kb__led__off(2); }
+// #define  keys__release__lpo2l2  KF(nop)
+void P(lpupo2l2) (void) { layer_stack__push(0, 2, 2); kb__led__on(2); }
+void R(lpupo2l2) (void) { layer_stack__pop_id(2); kb__led__off(2); }
 
 KEYS__LAYER__PUSH_POP(3, 3);
 #define  keys__press__lpu3l3    P(lpupo3l3)
