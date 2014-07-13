@@ -27,9 +27,9 @@ static layout_t layout PROGMEM = {
                                                      enter,   shiftL,     altL,
 // right hand ..... ......... ......... ......... ......... ......... .........
              power,        6,        7,        8,        9,        0,      nop,
-                bs,        f,        g,        c,        t,        z,      nop,
-                           h,        d,        r,        n,        s,      nop,
-              guiR,        b,        m,        w,        v,        l,      nop,
+                bs,        f,        g,        c,        t,        z,     mute,
+                           h,        d,        r,        n,        s,  volumeU,
+              guiR,        b,        m,        w,        v,        l,  volumeD,
                               lpupo1l1,      nop,      nop,      nop,      nop,
      nop, lpupo2l2,
    ctrlR,      nop,      nop,
@@ -51,9 +51,9 @@ static layout_t layout PROGMEM = {
                                                     transp,   transp,   transp,
 // right hand ..... ......... ......... ......... ......... ......... .........
                F12,       F6,       F7,       F8,       F9,      F10,   transp,
-               del,     home,    pageD,   arrowU,    pageU,   transp,   transp,
-                         end,   arrowL,   arrowD,   arrowR,   transp,   transp,
-            transp,   transp,     mute,  volumeU,  volumeD,   transp,   transp,
+               del,   transp,   transp,   arrowU,   transp,   transp,   transp,
+                      transp,   arrowL,   arrowD,   arrowR,   transp,   transp,
+            transp,   transp,   transp,   transp,   transp,   transp,   transp,
                                    nop,   transp,   transp,   transp,   transp,
   transp,      nop,
   transp,   transp,   transp,
@@ -67,7 +67,7 @@ static layout_t layout PROGMEM = {
 // left hand ...... ......... ......... ......... ......... ......... .........
   transp,   transp,   transp,   transp,   transp,   transp,   transp,
   transp,   transp,   transp,   transp,   transp,   transp,   transp,
-  transp,        1,        2,        3,        4,        5,
+  transp,   transp,   transp,   transp,   transp,   transp,
   transp,   transp,   transp,   transp,   transp,   transp,   transp,
   transp,   transp,   transp,   transp,      nop,
                                                                  nop,   transp,
@@ -75,7 +75,7 @@ static layout_t layout PROGMEM = {
                                                     transp,   transp,   transp,
 // right hand ..... ......... ......... ......... ......... ......... .........
              btldr,   transp,   transp,   transp,   transp,   transp,   transp,
-            transp,   transp,   transp,   transp,   transp,   transp,   transp,
+            transp,        1,        2,        3,        4,        5,   transp,
                            6,        7,        8,        9,        0,   transp,
             transp,   transp,   transp,   transp,   transp,   transp,   transp,
                                    nop,   transp,   transp,   transp,   transp,
